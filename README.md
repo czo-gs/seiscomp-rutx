@@ -4,22 +4,54 @@ AGPL-3.0 License (https://www.gnu.org/licenses/agpl-3.0.txt)
 
 Copyright (C) 2019-2025 Andres Heinloo <andres@gfz-potsdam.de>, Helmholtz-Zentrum Potsdam - Deutsches GeoForschungsZentrum GFZ
 
-Copyright (C) 2025 Geoscope Team <geoscope-admin@ipgp.fr> - Institut de physique du globe de Paris
+Copyright (C) 2025, 2026 Geoscope Team <geoscope-admin@ipgp.fr>
 
-# SeisComP
+## Building
 
-## About
+get the sdk, untar it, then cd to it
+
+    ./scripts/feeds update -a
+    make tools/install
+    make toolchain/install
+
+    cd feeds/packages/utils
+    git clone https://github.com/czo-gs/seiscomp-rutx
+    cd ../../..
+    ./scripts/feeds update -a
+    ./scripts/feeds install seiscomp-rutx
+    make menuconfig
+
+Then in `Utilities  --->` select seiscomp-rutx `<*> seiscomp-rutx`
+
+    make package/seiscomp-rutx/compile
+    make package/index
+
+opkg .ipk is a file like `bin/packages/arm_cortex-a7_neon-vfpv4/packages/seiscomp-rutx_6.4.1-1_arm_cortex-a7_neon-vfpv4.ipk`
+
+## Install by Releases
+
+You can get the release here: https://github.com/czo-gs/seiscomp-rutx/releases
+
+Then copy this file to your router and install it:
+
+    opkg install /tmp/seiscomp-rutx_6.4.1-1_arm_cortex-a7_neon-vfpv4.ipk
+
+## Original README
+
+### SeisComP
+
+### About
 
 SeisComP is a seismological software for data acquisition, processing,
 distribution and interactive analysis that has been developed by the
 GEOFON Program at  Helmholtz Centre Potsdam, GFZ German Research Centre
 for Geosciences and gempa GmbH.
 
-## License
+### License
 
 SeisComP is primarily released under the AGPL 3.0. Please check the [license agreement](doc/base/license.rst).
 
-## Asking Questions
+### Asking Questions
 
 Please ask questions in the [forums](https://forum.seiscomp3.org) and
 use appropriate topics to get help on usage or to discuss new features.
@@ -29,7 +61,7 @@ questions please use the Github issue tracker of the corresponding
 repository,
 e.g. [GitHub issue tracker of this repository](https://github.com/SeisComP/seiscomp/issues).
 
-## Checkout the repositories
+### Checkout the repositories
 
 The SeisComP software collection is distributed among several repositories.
 This repository only contains the build environment, the runtime framework
@@ -77,9 +109,9 @@ To keep track of the state of each subrepository, [mu-repo](http://fabioz.github
 is a recommended way.
 
 
-## Build
+### Build
 
-### Prerequisites
+#### Prerequisites
 
 The following packages should be installed to compile SeisComP:
 
@@ -111,7 +143,7 @@ Python-numpy is required if Numpy support is enable which is also
 the default configuration.
 
 
-### Configuration
+#### Configuration
 
 The SeisComP build system provides several build options which can be
 controlled with a cmake gui or from the commandline
@@ -133,7 +165,7 @@ the following global options are available:
 |SC_DOC_GENERATE_MAN|ON|Enable generation of MAN pages|
 |SC_DOC_GENERATE_PDF|OFF|Enable generation of PDF documentation|
 
-### Compilation
+#### Compilation
 
 1. Clone all required repositories (see above)
 2. Run ```make```
@@ -142,11 +174,11 @@ the following global options are available:
 5. Press 'g' to generate the Makefiles
 6. Enter the build directory and run ```make```
 
-### Installation
+#### Installation
 
 1. Enter the build directory and run ```make install```
    to install SeisComP
 
-## Contributing improvements and bug fixes
+### Contributing improvements and bug fixes
 
 Please consider [contributing](CONTRIBUTING.md) to the code.
