@@ -2,13 +2,13 @@
 # Author: Olivier Sirol <czo@free.fr>
 # License: GPL-2.0 (http://www.gnu.org/copyleft)
 # File Created: 17 September 2025
-# Last Modified: Monday 22 September 2025, 11:04
-# Edit Time: 1:56:22
+# Last Modified: Monday 23 February 2026, 14:02
+# Edit Time: 1:57:15
 # Description:
 #
 #       OpenWRT Makefile for Seiscomp
 #
-# Copyright: (C) 2025 Olivier Sirol <czo@free.fr>
+# Copyright: (C) 2025, 2026 Olivier Sirol <czo@free.fr>
 #
 # Original Author: Andres Heinloo <andres@gfz-potsdam.de>
 # (C) 2019 Andres Heinloo, Helmholtz-Zentrum Potsdam - Deutsches GeoForschungsZentrum GFZ
@@ -17,7 +17,8 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=seiscomp-rutx
 PKG_VERSION:=6.4.1
-PKG_RELEASE:=1
+# Add _sdk-X.XX.X to PKG_RELEASE only if it's detected in the pwd path
+PKG_RELEASE:=1$(shell pwd | grep -oP -- '-sdk-[0-9]+\.[0-9]+\.[0-9]+' | sed 's/-sdk-/_sdk-/')
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/SeisComP/seiscomp.git
