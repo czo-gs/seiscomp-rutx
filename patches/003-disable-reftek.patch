@@ -1,0 +1,10 @@
+--- a/src/base/seedlink/plugins/CMakeLists.txt
++++ b/src/base/seedlink/plugins/CMakeLists.txt
+@@ -20,7 +19,6 @@
+ 			naqsplugin
+ 			optodas_plugin
+ 			q330plugin
+-			reftek_plugin
+ 			scream_plugin
+ 			scream2_plugin
+ 			serial_plugin

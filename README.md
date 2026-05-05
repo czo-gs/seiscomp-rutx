@@ -4,6 +4,8 @@ AGPL-3.0 License (https://www.gnu.org/licenses/agpl-3.0.txt)
 
 Copyright (C) 2019-2025 Andres Heinloo <andres@gfz-potsdam.de>, Helmholtz-Zentrum Potsdam - Deutsches GeoForschungsZentrum GFZ
 
+For more information, see https://github.com/andres-h/seiscompwrt
+
 Copyright (C) 2025, 2026 Geoscope Team <geoscope-admin@ipgp.fr>
 
 ## Building

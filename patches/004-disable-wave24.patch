@@ -1,0 +1,10 @@
+--- a/src/base/seedlink/plugins/CMakeLists.txt
++++ b/src/base/seedlink/plugins/CMakeLists.txt
+@@ -23,7 +23,6 @@
+ 			scream2_plugin
+ 			serial_plugin
+ 			sockplugin
+-			wave24_plugin
+ 			win_plugin
+ 	) 
+ ENDIF ( NOT MACOSX )

@@ -2,8 +2,8 @@
 # Author: Olivier Sirol <czo@free.fr>
 # License: GPL-2.0 (http://www.gnu.org/copyleft)
 # File Created: 17 September 2025
-# Last Modified: Monday 23 February 2026, 14:02
-# Edit Time: 1:57:15
+# Last Modified: Thursday 30 April 2026, 18:03
+# Edit Time: 2:00:19
 # Description:
 #
 #       OpenWRT Makefile for Seiscomp
@@ -16,15 +16,21 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=seiscomp-rutx
-PKG_VERSION:=6.4.1
 # Add _sdk-X.XX.X to PKG_RELEASE only if it's detected in the pwd path
 PKG_RELEASE:=1$(shell pwd | grep -oP -- '-sdk-[0-9]+\.[0-9]+\.[0-9]+' | sed 's/-sdk-/_sdk-/')
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/SeisComP/seiscomp.git
 PKG_SOURCE_URL_SEEDLINK:=https://github.com/SeisComP/seedlink.git
-PKG_SOURCE_VERSION:=a7e4fa268b1d52267aaab56774986091d463bc71
-PKG_SOURCE_VERSION_SEEDLINK:=e6a676e7d60216efd374c4675069c55bb15987ef
+
+# PKG_VERSION:=6.4.1
+# PKG_SOURCE_VERSION:=a7e4fa268b1d52267aaab56774986091d463bc71
+# PKG_SOURCE_VERSION_SEEDLINK:=e6a676e7d60216efd374c4675069c55bb15987ef
+
+PKG_VERSION:=6.8.2
+PKG_SOURCE_VERSION:=9adcefab45b8b68ed93ce4798871a9d614ca84dd
+PKG_SOURCE_VERSION_SEEDLINK:=e7a165a93dd08560c55974e3ed78ed93459f280e
+
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_LICENSE:=AGPL-3.0
 PKG_LICENSE_FILES:=COPYING
